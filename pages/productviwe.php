@@ -55,7 +55,7 @@ $p = $_SESSION['lproduct'];
            margin-bottom : 10%;
            "  class="colv">
            <div class="card mb-4 box-shadow">
-             <img class="card-img-top" src="'.$p['proimg'] .' " width= " 500px" height= " 300px" alt="Card image cap">
+             <img class="card-img-top" src="proimg/'.$p['proimg'] .' " width= " 500px" height= " 300px" alt="Card image cap">
              <div class="card-body">
                <h2 class="card-text">'.$p['proname'].'</h2>
                <p class="card-text">'.$p['prodes'].'</p>

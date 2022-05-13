@@ -54,6 +54,9 @@ $op =true;
     
   </div>
 </nav>
+
+
+
     <div class="page-wrapper bg-dark p-t-100 p-b-50">
         <div class="wrapper wrapper--w900">
             <div class="card card-6">
@@ -61,7 +64,7 @@ $op =true;
                     <h2 class="title">Add Product </h2>
                 </div>
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype = "multipart/form-data" >
   <?php
   if(empty($_POST['proimg'])){
     $op =false;
@@ -97,10 +100,10 @@ if(empty($_POST['proprice'])){
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="name">Product Image URL : </div>
+                            <div class="name">Product Image  : </div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-6" type="text" name="proimg" placeholder="The URL of Product img">
+                                    <input class="input--style-6" type="file" name="proimg" placeholder="The image of Product ">
                                 </div>
                             </div>
                         </div>
@@ -149,7 +152,7 @@ if(empty($_POST['proprice'])){
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $op =true;
-    if(empty($_POST['proimg'])){
+    if(empty($_FILES['proimg'])){
         $op =false;
     }
     if(empty($_POST['prodes'])){
@@ -162,7 +165,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $op =false;
     }
     if($op){
-        $product = array("proname"=>$_POST['proname'] ,"prodes"=>$_POST['prodes'] ,"proimg"=>$_POST['proimg'] ,"proprice"=>$_POST['proprice']  );
+        move_uploaded_file($_FILES['proimg']['tmp_name'] ,'proimg/'.$_FILES['proimg']['name'] );
+        $product = array("proname"=>$_POST['proname'] ,"prodes"=>$_POST['prodes'] ,"proimg"=>$_FILES['proimg']['name'] ,"proprice"=>$_POST['proprice']  );
         if(!isset($_SESSION['products'])){
             $_SESSION['products'] = array();
         }

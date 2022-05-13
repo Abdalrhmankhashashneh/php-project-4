@@ -98,7 +98,7 @@ $S = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyH1AYThgG1X9uB8RLb_
            echo '
            <div class="col-md-4">
            <div class="card mb-4 box-shadow">
-             <img class="card-img-top" src="'.$p['proimg'] .' " width= " 500px" height= " 300px" alt="Card image cap">
+             <img class="card-img-top" src="pages/proimg/'.$p['proimg'] .' " width= " 500px" height= " 300px" alt="Card image cap">
              <div class="card-body">
                <h2 class="card-text">'.$p['proname'].'</h2>
                <p class="card-text">'.$p['prodes'].'</p>
